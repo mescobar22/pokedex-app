@@ -1,22 +1,19 @@
-function Finder({
-    finderLabel = "Buscador",
-    buttonText = "Buscar",
-    setBusqueda,
-    setIniciarBusqueda
-  }) {
-  
-  
-    const onClickButton = () =>{
-      setIniciarBusqueda(true)
-    }
-    return (
-      <>
-        <label htmlFor="">{finderLabel}</label>
-        <input type="text" onChange={(e) => setBusqueda(e.target.value)} />
-        <input type="button" value={buttonText} onClick={(e)=>setIniciarBusqueda(true)} />
-      </>
-    );
-  }
-  
-  export default Finder;
-  
+import { useState } from "react";
+
+function Finder() {
+  const [message, setMessage] = useState("");
+
+  const handleClick = () => {
+    setMessage("¡Botón presionado!");
+  };
+
+  return (
+    <div>
+      <input type="text" placeholder="Buscar pokemon..." />
+      <button onClick={handleClick}>Buscar</button>
+      <p>{message}</p>
+    </div>
+  );
+}
+
+export default Finder;
